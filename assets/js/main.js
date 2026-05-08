@@ -13,6 +13,7 @@ const modalSelector = "[data-modal-focus], button:not([disabled])";
 
 let activeRegion = "menu";
 
+// The contact page owns its own keyboard model; main.js only delegates to it.
 const getContactController = () => window.contactFormController ?? null;
 
 const getOpenModal = () => modals.find((modal) => !modal.hidden) ?? null;
@@ -78,6 +79,7 @@ const moveWithinList = (elements, direction) => {
     return;
   }
 
+  // When focus lands outside the managed list, restart from the first item.
   const currentIndex = elements.indexOf(document.activeElement);
   const safeIndex = currentIndex === -1 ? 0 : currentIndex;
   const nextIndex = (safeIndex + direction + elements.length) % elements.length;
@@ -168,6 +170,7 @@ window.addEventListener("keydown", (event) => {
   const contactController = getContactController();
   const isManagedFormElement = Boolean(contactController?.isManagedElement(activeElement));
   const activeTag = activeElement?.tagName ?? "";
+  // Contact inputs are only considered "typing contexts" after explicit edit mode.
   const isTypingContext = isManagedFormElement
     ? contactController?.isEditing() === true
     : activeTag === "INPUT" || activeTag === "TEXTAREA" || activeElement?.isContentEditable;

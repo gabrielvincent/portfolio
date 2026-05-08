@@ -1,9 +1,12 @@
 const contactForm = document.querySelector("[data-contact-form]");
 const feedbackElement = document.querySelector("[data-form-feedback]");
+const contactHelpModal = document.querySelector("[data-contact-help-modal]");
+const contactHelpCloseButton = document.querySelector("[data-contact-help-close]");
 const successModal = document.querySelector("[data-success-modal]");
 const successCloseButton = document.querySelector("[data-success-close]");
 
 if (contactForm && feedbackElement) {
+  const contactHelpStorageKey = "portfolio_contact_help_seen";
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const fieldSelector = "input:not([disabled]), textarea:not([disabled]), button:not([disabled])";
   const editableSelector = "input:not([disabled]), textarea:not([disabled])";
@@ -25,10 +28,51 @@ if (contactForm && feedbackElement) {
     element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement;
 
   const syncModalState = () => {
+    // This page can open either the onboarding modal or the success modal.
     const hasOpenModal = Array.from(document.querySelectorAll("[data-modal]")).some(
       (modal) => !modal.hidden,
     );
     document.body.classList.toggle("modal-open", hasOpenModal);
+  };
+
+  const isContactHelpSeen = () => {
+    try {
+      return window.sessionStorage.getItem(contactHelpStorageKey) === "true";
+    } catch {
+      return false;
+    }
+  };
+
+  const markContactHelpSeen = () => {
+    try {
+      window.sessionStorage.setItem(contactHelpStorageKey, "true");
+    } catch {
+      // Ignore storage errors and keep the onboarding functional.
+    }
+  };
+
+  const openContactHelpModal = () => {
+    if (!contactHelpModal) {
+      return;
+    }
+
+    contactHelpModal.hidden = false;
+    syncModalState();
+
+    const modalFocusTarget = contactHelpModal.querySelector("[data-modal-focus]");
+    if (modalFocusTarget instanceof HTMLElement) {
+      modalFocusTarget.focus();
+    }
+  };
+
+  const closeContactHelpModal = () => {
+    if (!contactHelpModal) {
+      return;
+    }
+
+    contactHelpModal.hidden = true;
+    syncModalState();
+    focusFieldByIndex(0);
   };
 
   const openSuccessModal = () => {
@@ -113,6 +157,7 @@ if (contactForm && feedbackElement) {
   };
 
   window.contactFormController = {
+    // main.js asks this controller for the only valid focus targets in the form region.
     getFocusableElements: () => focusableFields,
     hasForm: () => focusableFields.length > 0,
     isEditing: () => isEditing,
@@ -139,6 +184,7 @@ if (contactForm && feedbackElement) {
     true,
   );
 
+  // Capture phase lets the form intercept hjkl/c/Enter before the global handler does.
   window.addEventListener(
     "keydown",
     (event) => {
@@ -247,6 +293,21 @@ if (contactForm && feedbackElement) {
       closeSuccessModal();
     });
   }
+
+  if (contactHelpCloseButton) {
+    contactHelpCloseButton.addEventListener("click", () => {
+      markContactHelpSeen();
+      closeContactHelpModal();
+    });
+  }
+
+  window.addEventListener("load", () => {
+    if (isContactHelpSeen()) {
+      return;
+    }
+
+    openContactHelpModal();
+  });
 
   updateFieldState();
 }

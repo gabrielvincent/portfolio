@@ -9,6 +9,34 @@
     <script src="assets/js/contact.js" defer></script>
   </head>
   <body data-page="contact">
+    <div class="intro-modal" data-modal data-contact-help-modal hidden>
+      <div class="intro-modal__backdrop"></div>
+      <section
+        class="intro-modal__window"
+        aria-labelledby="contact-help-title"
+        aria-modal="true"
+        role="dialog"
+      >
+        <pre class="ascii-banner ascii-banner--modal" aria-hidden="true">
++--------------------------------------+
+| AJUDA_FORMULARIO :: EDICAO           |
++--------------------------------------+</pre
+        >
+        <div class="intro-modal__body" tabindex="0" data-modal-focus>
+          <p id="contact-help-title">Os campos começam travados para navegação.</p>
+          <p>Pressione `c` em um input ou textarea para entrar no modo de edição.</p>
+          <p>Pressione `Enter` ou `Esc` para sair do modo de edição.</p>
+        </div>
+        <button
+          type="button"
+          class="intro-modal__button"
+          data-contact-help-close
+          data-modal-focus
+        >
+          OK
+        </button>
+      </section>
+    </div>
     <div class="intro-modal" data-modal data-success-modal hidden>
       <div class="intro-modal__backdrop"></div>
       <section
