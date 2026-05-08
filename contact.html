@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio Terminal | Contato</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/contact.js" defer></script>
+  </head>
+  <body data-page="contact">
+    <div class="intro-modal" data-modal data-success-modal hidden>
+      <div class="intro-modal__backdrop"></div>
+      <section
+        class="intro-modal__window"
+        aria-labelledby="success-title"
+        aria-modal="true"
+        role="dialog"
+      >
+        <pre class="ascii-banner ascii-banner--modal" aria-hidden="true">
++--------------------------------------+
+| MENSAGEM_ENVIADA :: SUCESSO          |
++--------------------------------------+</pre
+        >
+        <div class="intro-modal__body">
+          <p id="success-title">Mensagem enviada com sucesso.</p>
+          <p>Muito obrigado por me enviar uma mensage :)</p>
+        </div>
+        <button
+          type="button"
+          class="intro-modal__button"
+          data-success-close
+          data-modal-focus
+        >
+          OK
+        </button>
+      </section>
+    </div>
+    <div class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand__prompt">visitor@portfolio:~$</span>
+          <span class="brand__title">currículo-online</span>
+        </div>
+        <nav
+          class="main-nav"
+          aria-label="Navegação principal"
+          data-focus-region="menu"
+        >
+          <a href="index.html" data-nav-item="home">Sobre mim</a>
+          <a href="education.html" data-nav-item="education">Formação</a>
+          <a href="portfolio.html" data-nav-item="portfolio">Portfólio</a>
+          <a href="contact.html" data-nav-item="contact">Contato</a>
+        </nav>
+      </header>
+
+      <main class="window" data-focus-region="main">
+        <div class="window__bar">
+          <p class="window__path">
+            [session:portfolio] [file:contact.sh] [mode:keyboard]
+          </p>
+        </div>
+        <section class="command-strip" aria-label="Atalhos de teclado">
+          <p><span>tab</span> menu_formulário</p>
+          <p><span>h j k l</span> navegar_campos</p>
+          <p><span>c</span> editar_campo</p>
+          <p><span>enter</span> sair_do_modo_edição</p>
+        </section>
+
+        <section class="hero">
+          <pre class="ascii-banner" aria-hidden="true">
++--------------------------------------+
+| PORTFÓLIO TERMINAL :: CONTATO        |
++--------------------------------------+</pre
+          >
+          <p class="prompt-line">./enviar_mensagem.sh</p>
+          <h1>Entre em contato.</h1>
+          <p class="hero__lead">
+            Entre em contato comigo. Pode falar sobre qualquer coisa. Estou aqui
+            pra te ouvir. Pode desabafar ou só contar uma piada, o que você
+            preferir.
+          </p>
+        </section>
+
+        <section class="panel panel--wide">
+          <p class="panel__label">+-- contact-form</p>
+          <form class="contact-form" data-contact-form novalidate>
+            <label for="name">Nome</label>
+            <input id="name" name="name" type="text" autocomplete="name" />
+
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" />
+
+            <label for="message">Mensagem</label>
+            <textarea id="message" name="message" rows="6"></textarea>
+
+            <div class="form-actions">
+              <button type="submit">Enviar mensagem</button>
+              <button type="reset" class="button-secondary">
+                Limpar campos
+              </button>
+            </div>
+
+            <div
+              class="form-feedback"
+              data-form-feedback
+              aria-live="polite"
+            ></div>
+          </form>
+        </section>
+
+        <section class="panel panel--wide">
+          <p class="panel__label">+-- nota.txt</p>
+          <h2>Disponibilidade</h2>
+          <p>
+            Tenho disponibilidade pra receber mensagens a qualquer momento. A
+            minha caixa de emails funciona vinte e quatro horas por dia, sete
+            dias por semana. Não garanto, porém, que eu vá respndê-las
+            celeremente.
+          </p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

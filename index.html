@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio Terminal | Sobre Mim</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body data-page="home">
+    <div class="intro-modal" data-modal data-intro-modal hidden>
+      <div class="intro-modal__backdrop"></div>
+      <section
+        class="intro-modal__window"
+        aria-labelledby="intro-title"
+        aria-modal="true"
+        role="dialog"
+      >
+        <pre class="ascii-banner ascii-banner--modal" aria-hidden="true">
++--------------------------------------+
+| AJUDA_INICIAL :: COMO_USAR           |
++--------------------------------------+</pre
+        >
+        <div class="intro-modal__body" tabindex="0" data-modal-focus>
+          <p>Este site simula uma interface de terminal.</p>
+          <p>Use apenas o teclado para navegar.</p>
+          <p>`Tab` troca entre menu e conteúdo principal.</p>
+          <p>`h` e `k` vão para o item anterior.</p>
+          <p>`j` e `l` vão para o próximo item.</p>
+          <p>No portfólio, `Enter` abre links de projeto em nova aba.</p>
+          <p id="intro-title">Use `j` ou `l` para ir até o botão abaixo.</p>
+        </div>
+        <button
+          type="button"
+          class="intro-modal__button"
+          data-intro-close
+          data-modal-focus
+        >
+          OK
+        </button>
+      </section>
+    </div>
+    <div class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand__prompt">visitor@portfolio:~$</span>
+          <span class="brand__title">currículo-online</span>
+        </div>
+        <nav
+          class="main-nav"
+          aria-label="Navegação principal"
+          data-focus-region="menu"
+        >
+          <a href="index.html" data-nav-item="home">Sobre mim</a>
+          <a href="education.html" data-nav-item="education">Formação</a>
+          <a href="portfolio.html" data-nav-item="portfolio">Portfólio</a>
+          <a href="contact.html" data-nav-item="contact">Contato</a>
+        </nav>
+      </header>
+
+      <main class="window" data-focus-region="main">
+        <div class="window__bar">
+          <p class="window__path">
+            [session:portfolio] [file:about.txt] [mode:keyboard]
+          </p>
+        </div>
+        <section class="command-strip" aria-label="Atalhos de teclado">
+          <p><span>tab</span> trocar_região</p>
+          <p><span>h/k</span> item_anterior</p>
+          <p><span>j/l</span> próximo_item</p>
+          <p><span>modo</span> teclado_total</p>
+        </section>
+
+        <section class="hero" tabindex="0" data-main-focus>
+          <pre class="ascii-banner" aria-hidden="true">
++--------------------------------------+
+| PORTFÓLIO TERMINAL :: SOBRE_MIM      |
++--------------------------------------+</pre
+          >
+          <p class="prompt-line">cat perfil_profissional.txt</p>
+          <h1>
+            Olá, boa tarde. Este é o meu portfólio on-line. Seja bem-vindo(a).
+          </h1>
+          <p class="hero__lead">
+            Este portfólio apresenta minha trajetória, meus estudos e os
+            projetos que venho desenvolvendo.
+          </p>
+        </section>
+
+        <section class="grid-section">
+          <article class="panel" tabindex="0" data-main-focus>
+            <p class="panel__label">+-- apresentacao.md</p>
+            <h2>Sobre mim</h2>
+            <p>
+              Eu, assim como muita gente, tenho um nome pelo qual costumam me
+              chamar. Este nome é "Gabriel", um dos nomes bíblicos. Tenho mais
+              de 30 anos, Na maior parte desses mais de trinta anos, vivi no Rio
+              de Janeiro, a capital do Estado do Rio de Janeiro. Eu gosto de
+              acordar cedo, de café, de pimenta, de filmes nacionais de baixo
+              orçamento e de filmes internacionais de baixíssimo orçamento. Eu
+              adoraria pisar em um outro planeta, em especial um cuja atmosfera
+              não vá me obliterar imediatamente, como Júpiter.
+            </p>
+            <p>
+              Este site é inspirado na estética de terminal, reunindo
+              apresentação pessoal, formação, portfólio e contato em uma
+              navegação inteiramente por teclado.
+            </p>
+          </article>
+
+          <article class="panel" tabindex="0" data-main-focus>
+            <p class="panel__label">+-- hobbies.log</p>
+            <h2>Hobbies</h2>
+            <ul class="terminal-list">
+              <li>Explorar novas linguagens de programação</li>
+              <li>Cozinhar</li>
+              <li>Artes marciais, em especial Karate Kyokushin e Wing Chun</li>
+            </ul>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

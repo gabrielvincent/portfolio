@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio Terminal | Formação</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body data-page="education">
+    <div class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand__prompt">visitor@portfolio:~$</span>
+          <span class="brand__title">currículo-online</span>
+        </div>
+        <nav
+          class="main-nav"
+          aria-label="Navegação principal"
+          data-focus-region="menu"
+        >
+          <a href="index.html" data-nav-item="home">Sobre mim</a>
+          <a href="education.html" data-nav-item="education">Formação</a>
+          <a href="portfolio.html" data-nav-item="portfolio">Portfólio</a>
+          <a href="contact.html" data-nav-item="contact">Contato</a>
+        </nav>
+      </header>
+
+      <main class="window" data-focus-region="main">
+        <div class="window__bar">
+          <p class="window__path">
+            [session:portfolio] [file:education.txt] [mode:keyboard]
+          </p>
+        </div>
+        <section class="command-strip" aria-label="Atalhos de teclado">
+          <p><span>tab</span> trocar_região</p>
+          <p><span>h/k</span> item_anterior</p>
+          <p><span>j/l</span> próximo_item</p>
+          <p><span>modo</span> teclado_total</p>
+        </section>
+
+        <section class="hero" tabindex="0" data-main-focus>
+          <pre class="ascii-banner" aria-hidden="true">
++--------------------------------------+
+| PORTFÓLIO TERMINAL :: FORMAÇÃO       |
++--------------------------------------+</pre
+          >
+          <p class="prompt-line">ls formacao/</p>
+          <h1>Formação acadêmica e desenvolvimento contínuo.</h1>
+          <p class="hero__lead">
+            Esta seção organiza estudos, cursos e idiomas em um formato enxuto,
+            destacando minha base acadêmica e meu processo contínuo de
+            aprendizagem.
+          </p>
+        </section>
+
+        <section class="grid-section">
+          <article class="panel" tabindex="0" data-main-focus>
+            <p class="panel__label">+-- graduacao.yml</p>
+            <h2>Formação educacional</h2>
+            <ul class="timeline">
+              <li>
+                <strong>Bacharelado em Ciência da Computação</strong>
+                <i>2025 - Presente</i>
+                <span>UNINTER</span>
+              </li>
+              <li>
+                <strong>Bacharelado em Teatro</strong>
+                <i>2013 - 2018</i>
+                <span>Casa das Artes de Laranjeiras</span>
+              </li>
+              <li>
+                <strong>Ensino médio</strong>
+                <i>2009 - 2012</i>
+                <span
+                  >Quase que eu não termino. Ainda bem que é possível conseguir
+                  o certificado de conclusão do ensino médio a partir da nota
+                  obtida no ENEM</span
+                >
+              </li>
+            </ul>
+          </article>
+
+          <article class="panel" tabindex="0" data-main-focus>
+            <p class="panel__label">+-- courses.csv</p>
+            <h2>Cursos complementares</h2>
+            <ul class="timeline">
+              <li>
+                <strong>Dublagem</strong>
+                <span>Beck Studios</span>
+              </li>
+              <li>
+                <strong>Francês</strong>
+                <span>Yázigi</span>
+              </li>
+              <li>
+                <strong>Autoescola</strong>
+                <span>Vila Nova de Gaia</span>
+              </li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="panel panel--wide" tabindex="0" data-main-focus>
+          <p class="panel__label">+-- languages.ini</p>
+          <h2>Idiomas</h2>
+          <div class="stats">
+            <div class="stat-card">
+              <span class="stat-card__key">português</span>
+              <strong class="stat-card__value">Nativo</strong>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__key">inglês</span>
+              <strong class="stat-card__value">Fluente</strong>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__key">francês</span>
+              <strong class="stat-card__value">Básico (A2)</strong>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__key">catalão</span>
+              <strong class="stat-card__value">A aprender</strong>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

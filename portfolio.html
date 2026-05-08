@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio Terminal | Portfólio</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body data-page="portfolio">
+    <div class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand__prompt">visitor@portfolio:~$</span>
+          <span class="brand__title">currículo-online</span>
+        </div>
+        <nav
+          class="main-nav"
+          aria-label="Navegação principal"
+          data-focus-region="menu"
+        >
+          <a href="index.html" data-nav-item="home">Sobre mim</a>
+          <a href="education.html" data-nav-item="education">Formação</a>
+          <a href="portfolio.html" data-nav-item="portfolio">Portfólio</a>
+          <a href="contact.html" data-nav-item="contact">Contato</a>
+        </nav>
+      </header>
+
+      <main class="window" data-focus-region="main">
+        <div class="window__bar">
+          <p class="window__path">
+            [session:portfolio] [file:projects.txt] [mode:keyboard]
+          </p>
+        </div>
+        <section class="command-strip" aria-label="Atalhos de teclado">
+          <p><span>tab</span> trocar_região</p>
+          <p><span>h/k</span> item_anterior</p>
+          <p><span>j/l</span> próximo_item</p>
+          <p><span>modo</span> teclado_total</p>
+        </section>
+
+        <section class="hero" tabindex="0" data-main-focus>
+          <pre class="ascii-banner" aria-hidden="true">
++--------------------------------------+
+| PORTFÓLIO TERMINAL :: PORTFÓLIO      |
++--------------------------------------+</pre
+          >
+          <p class="prompt-line">tree projetos/</p>
+          <h1>Projetos e exercícios em evolução.</h1>
+          <p class="hero__lead">
+            Os links abaixo reúnem alguns dos meus repositórios públicos mais
+            interessantes, com foco em ferramentas de desktop, linguagens de
+            programação, automação e bibliotecas voltadas para uso real.
+          </p>
+        </section>
+
+        <section class="projects">
+          <a
+            class="project-card"
+            href="https://github.com/gabrielvincent/switcharoo"
+            target="_blank"
+            rel="noreferrer"
+            data-project-link
+            data-main-focus
+          >
+            <p class="project-card__type">+-- projeto_01</p>
+            <h2>switcharoo</h2>
+            <p>
+              Alternador em Rust (blazing fast) para clientes e workspaces do
+              Hyprland, com navegação rápida entre janelas e foco em uso diário
+              no desktop.
+            </p>
+            <p>abrir_repositório</p>
+          </a>
+
+          <a
+            class="project-card"
+            href="https://github.com/gabrielvincent/crystalfmt"
+            target="_blank"
+            rel="noreferrer"
+            data-project-link
+            data-main-focus
+          >
+            <p class="project-card__type">+-- projeto_02</p>
+            <h2>crystalfmt</h2>
+            <p>
+              Formatador de código para a linguagem Crystal escrito em Go, com
+              foco em padronização de estilo e tooling para desenvolvimento.
+            </p>
+            <p>abrir_repositório</p>
+          </a>
+
+          <a
+            class="project-card"
+            href="https://github.com/gabrielvincent/swisseph_zig"
+            target="_blank"
+            rel="noreferrer"
+            data-project-link
+            data-main-focus
+          >
+            <p class="project-card__type">+-- projeto_03</p>
+            <h2>swisseph_zig</h2>
+            <p>
+              Binding em Zig para a biblioteca C Swiss Ephemeris, oferecendo uma
+              interface mais direta para cálculos astronômicos.
+            </p>
+            <p>abrir_repositório</p>
+          </a>
+
+          <a
+            class="project-card"
+            href="https://github.com/gabrielvincent/gleam-http-server"
+            target="_blank"
+            rel="noreferrer"
+            data-project-link
+            data-main-focus
+          >
+            <p class="project-card__type">+-- projeto_04</p>
+            <h2>gleam-http-server</h2>
+            <p>
+              Implementação básica do protocolo HTTP em Gleam, incluindo
+              tratamento de requisições e respostas em uma base enxuta.
+            </p>
+            <p>abrir_repositório</p>
+          </a>
+
+          <a
+            class="project-card"
+            href="https://github.com/gabrielvincent/hacker-news-navigator"
+            target="_blank"
+            rel="noreferrer"
+            data-project-link
+            data-main-focus
+          >
+            <p class="project-card__type">+-- projeto_05</p>
+            <h2>hacker-news-navigator</h2>
+            <p>
+              Extensão para Firefox que adiciona navegação por teclado em
+              threads do Hacker News para percorrer comentários com mais
+              rapidez.
+            </p>
+            <p>abrir_repositório</p>
+          </a>
+
+          <a
+            class="project-card"
+            href="https://github.com/gabrielvincent/LinkedInAuth-Swift"
+            target="_blank"
+            rel="noreferrer"
+            data-project-link
+            data-main-focus
+          >
+            <p class="project-card__type">+-- projeto_06</p>
+            <h2>LinkedInAuth-Swift</h2>
+            <p>
+              Biblioteca em Swift para autenticação com LinkedIn via OAuth2, sem
+              depender do aplicativo oficial instalado no dispositivo.
+            </p>
+            <p>abrir_repositório</p>
+          </a>
+
+          <a
+            class="project-card"
+            href="https://github.com/gabrielvincent/mercado-crystal"
+            target="_blank"
+            rel="noreferrer"
+            data-project-link
+            data-main-focus
+          >
+            <p class="project-card__type">+-- projeto_07</p>
+            <h2>mercado-crystal</h2>
+            <p>
+              Versão em Crystal de uma ferramenta pessoal para compras e
+              controle de gastos em mercado.
+            </p>
+            <p>abrir_repositório</p>
+          </a>
+        </section>
+
+        <section class="panel panel--wide" tabindex="0" data-main-focus>
+          <p class="panel__label">+-- readme.md</p>
+          <h2>Resumo dos projetos</h2>
+          <ul class="terminal-list">
+            <li>switcharoo reúne desenvolvimento para Linux desktop em Rust</li>
+            <li>crystalfmt é um projeto de tooling e formatação para Crystal</li>
+            <li>swisseph_zig trabalha integração entre Zig e uma biblioteca em C</li>
+            <li>gleam-http-server explora fundamentos de HTTP em Gleam</li>
+            <li>hacker-news-navigator aplica JavaScript a uma extensão de navegador útil</li>
+            <li>LinkedInAuth-Swift foca em autenticação OAuth2 para aplicativos iOS</li>
+            <li>mercado-crystal adapta uma ferramenta pessoal para a linguagem Crystal</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
