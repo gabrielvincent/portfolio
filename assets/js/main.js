@@ -1,5 +1,6 @@
 const currentPage = document.body.dataset.page;
 const navItems = Array.from(document.querySelectorAll("[data-nav-item]"));
+const topbar = document.querySelector(".topbar");
 const menuRegion = document.querySelector('[data-focus-region="menu"]');
 const mainRegion = document.querySelector('[data-focus-region="main"]');
 const modals = Array.from(document.querySelectorAll("[data-modal]"));
@@ -12,6 +13,7 @@ const mainSelector =
 const modalSelector = "[data-modal-focus], button:not([disabled])";
 
 let activeRegion = "menu";
+const viewportPadding = 24;
 
 // The contact page owns its own keyboard model; main.js only delegates to it.
 const getContactController = () => window.contactFormController ?? null;
@@ -63,6 +65,50 @@ const getRegionElements = (region) => {
   return Array.from(scope.querySelectorAll(selector)).filter(isAvailable);
 };
 
+const getTopViewportInset = () => {
+  if (!(topbar instanceof HTMLElement)) {
+    return 0;
+  }
+
+  if (window.matchMedia("(max-width: 860px)").matches) {
+    return 0;
+  }
+
+  const { bottom } = topbar.getBoundingClientRect();
+  return Math.max(0, bottom + 8);
+};
+
+const scrollElementIntoViewIfNeeded = (element) => {
+  if (!(element instanceof HTMLElement)) {
+    return;
+  }
+
+  const rect = element.getBoundingClientRect();
+  const topInset = getTopViewportInset();
+  const viewportTop = topInset + viewportPadding;
+  const viewportBottom = window.innerHeight - viewportPadding;
+  const isAboveViewport = rect.top < viewportTop;
+  const isBelowViewport = rect.bottom > viewportBottom;
+  const isLeftOfViewport = rect.left < 0;
+  const isRightOfViewport = rect.right > window.innerWidth;
+
+  if (isAboveViewport || isBelowViewport || isLeftOfViewport || isRightOfViewport) {
+    const scrollTop = window.scrollY;
+    let nextScrollTop = scrollTop;
+
+    if (isAboveViewport) {
+      nextScrollTop += rect.top - viewportTop;
+    } else if (isBelowViewport) {
+      nextScrollTop += rect.bottom - viewportBottom;
+    }
+
+    window.scrollTo({
+      top: Math.max(0, nextScrollTop),
+      behavior: "smooth",
+    });
+  }
+};
+
 const focusRegion = (region) => {
   const elements = getRegionElements(region);
 
@@ -72,6 +118,7 @@ const focusRegion = (region) => {
 
   activeRegion = region;
   elements[0].focus();
+  scrollElementIntoViewIfNeeded(elements[0]);
 };
 
 const moveWithinList = (elements, direction) => {
@@ -84,6 +131,7 @@ const moveWithinList = (elements, direction) => {
   const safeIndex = currentIndex === -1 ? 0 : currentIndex;
   const nextIndex = (safeIndex + direction + elements.length) % elements.length;
   elements[nextIndex].focus();
+  scrollElementIntoViewIfNeeded(elements[nextIndex]);
 };
 
 const moveWithinRegion = (direction) => {
@@ -154,7 +202,10 @@ const openIntroModal = () => {
   }
 };
 
-window.addEventListener("focusin", syncActiveRegion);
+window.addEventListener("focusin", () => {
+  syncActiveRegion();
+  scrollElementIntoViewIfNeeded(document.activeElement);
+});
 
 if (introCloseButton) {
   introCloseButton.addEventListener("click", () => {
@@ -247,6 +298,7 @@ window.addEventListener("load", () => {
 
   if (currentItem) {
     currentItem.focus();
+    scrollElementIntoViewIfNeeded(currentItem);
     return;
   }
 
